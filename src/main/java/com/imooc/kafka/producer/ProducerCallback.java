@@ -5,12 +5,16 @@ import com.google.gson.Gson;
 import com.imooc.kafka.common.MessageEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.RecordMetadata;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.lang.Nullable;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 
 @Slf4j
 public class ProducerCallback implements ListenableFutureCallback<SendResult<String, MessageEntity>> {
+
+    private static Logger log = LoggerFactory.getLogger(ProducerCallback.class);
 
     private final long startTime;
     private final String key;
